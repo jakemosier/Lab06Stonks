@@ -46,23 +46,11 @@ public class StonkAppMain {
     }
 
     public void purchaseFazCoin(int numFazCoin){
-        if(sm.fazCoinToUSD(numFazCoin) <= w.getUSDollars()){
-            w.setFazCoin(w.getFazCoin() + numFazCoin);
-            w.setUSDollars(w.getUSDollars() - sm.fazCoinToUSD(numFazCoin));
-        }
-        else{
-            System.out.println("You do not have enough money to buy that much FazCoin.");
-        }
+
     }
 
     public void sellFazCoin(int numFazCoin){
-        if(numFazCoin <= w.getFazCoin()){
-            w.setFazCoin(w.getFazCoin() - numFazCoin);
-            w.setUSDollars(w.getUSDollars() + sm.fazCoinToUSD(numFazCoin));
-        }
-        else{
-            System.out.println("You do not have enough FazCoin to sell.");
-        }
+
     }
 
     public static void main(String[] args) {
