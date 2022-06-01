@@ -9,5 +9,12 @@ public class StonkMarket {
         return (fazCoin * getExchangeRate()) / 100.0;
     }
 
+    public double getExchangeRate() {
+        return exchangeRate;
+    }
+    
+    public double changeExchangeRate() {
+        return exchangeRate += (RANDY.nextDouble() - 0.5);
+    }
 
 }

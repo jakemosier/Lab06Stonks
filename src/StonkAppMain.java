@@ -5,8 +5,8 @@ public class StonkAppMain {
     Wallet w;
 
     public void go(){
-        view.startScreen();
-        walletInitializer();
+        view.startScreen(); // call the startscreen object, brings up the start screen 
+        walletInitializer(); // 
         view.printMenu();
         view.walletInfo(w, sm);
         String action = view.getAction("What would you like to do? ");
@@ -45,13 +45,24 @@ public class StonkAppMain {
         }
     }
 
-    public void purchaseFazCoin(int numFazCoin){
-
-        
+    public void purchaseFazCoin(int numFazCoin) {
+        if(sm.fazCoinToUSD(numFazCoin) <= w.getUSDollars()) {
+            w.setFazCoin(numFazCoin + (w.getFazCoin()));
+            w.setUSDollars(w.getUSDollars() - sm.fazCoinToUSD(numFazCoin));
+        } else {
+            System.out.println("You do not have enough money to buy that much FazCoin.");
+            System.out.println("");
+        }
     }
 
-    public void sellFazCoin(int numFazCoin){
-
+    public void sellFazCoin(int numFazCoin) {
+        System.out.println("AMOUNT OF FAZ COIN " + w.getFazCoin());
+        if(numFazCoin <= w.getFazCoin()) {
+            w.setUSDollars(sm.fazCoinToUSD(numFazCoin) + (w.getUSDollars()));
+            w.setFazCoin(w.getFazCoin() - numFazCoin);
+        } else {
+            System.out.println("You do not have enough FazCoin to sell.");
+        }
     }
 
     public static void main(String[] args) {
