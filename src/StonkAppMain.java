@@ -47,6 +47,7 @@ public class StonkAppMain {
 
     public void purchaseFazCoin(int numFazCoin){
 
+        
     }
 
     public void sellFazCoin(int numFazCoin){
